@@ -1,0 +1,3735 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "description": "hardware-detail",
+    "editable": true,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": 278,
+    "iteration": 1695714550577,
+    "links": [
+      {
+        "asDropdown": true,
+        "icon": "external link",
+        "tags": [
+          "hardware-overview"
+        ],
+        "title": "OVERVIEW",
+        "type": "dashboards"
+      },
+      {
+        "asDropdown": true,
+        "icon": "external link",
+        "tags": [
+          "hardware_status"
+        ],
+        "title": "DC view",
+        "type": "dashboards"
+      }
+    ],
+    "panels": [
+      {
+        "collapsed": false,
+        "datasource": null,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 42,
+        "panels": [],
+        "title": "Status: $serverServiceTag",
+        "type": "row"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": true,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "description": "- Service Tag: $serverServiceTag\n- Function: $func_server \n- IP address: $ip_address\n- Management: $instance\n- Location: $location_server.$rack.U$unit",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 2,
+          "x": 0,
+          "y": 1
+        },
+        "id": 40,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "globalSystemStatus{instance=\"$instance\"}",
+            "format": "time_series",
+            "hide": false,
+            "instant": true,
+            "intervalFactor": 1,
+            "legendFormat": "Unhealthy",
+            "refId": "A"
+          }
+        ],
+        "thresholds": "4,5",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Health",
+        "type": "singlestat",
+        "valueFontSize": "70%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "other",
+            "value": "0"
+          },
+          {
+            "op": "=",
+            "text": "unknown",
+            "value": "2"
+          },
+          {
+            "op": "=",
+            "text": "OK",
+            "value": "3"
+          },
+          {
+            "op": "=",
+            "text": "WARNING",
+            "value": "4"
+          },
+          {
+            "op": "=",
+            "text": "CRITICAL",
+            "value": "5"
+          },
+          {
+            "op": "=",
+            "text": "nonRecoverable",
+            "value": "6"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": true,
+        "colorValue": false,
+        "colors": [
+          "#d44a3a",
+          "rgba(237, 129, 40, 0.89)",
+          "#299c46"
+        ],
+        "datasource": "Prometheus",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 2,
+          "x": 2,
+          "y": 1
+        },
+        "id": 10,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "systemPowerState{instance=\"$instance\"}",
+            "format": "time_series",
+            "instant": true,
+            "intervalFactor": 1,
+            "refId": "A"
+          }
+        ],
+        "thresholds": "3,4",
+        "title": "POWER",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          },
+          {
+            "op": "=",
+            "text": "OFF",
+            "value": "3"
+          },
+          {
+            "op": "=",
+            "text": "ON",
+            "value": "4"
+          }
+        ],
+        "valueName": "avg"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": true,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 4,
+          "x": 4,
+          "y": 1
+        },
+        "id": 37,
+        "interval": "",
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "systemStateProcessorDeviceStatusCombined{instance=\"$instance\"}",
+            "format": "time_series",
+            "hide": false,
+            "instant": true,
+            "intervalFactor": 1,
+            "legendFormat": "count",
+            "refId": "A"
+          }
+        ],
+        "thresholds": "null,4",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "PROCESSOR ISSUES (CPU)",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "other",
+            "value": "0"
+          },
+          {
+            "op": "=",
+            "text": "unknown",
+            "value": "2"
+          },
+          {
+            "op": "=",
+            "text": "OK",
+            "value": "3"
+          },
+          {
+            "op": "=",
+            "text": "WARNING",
+            "value": "4"
+          },
+          {
+            "op": "=",
+            "text": "CRITICAL",
+            "value": "5"
+          },
+          {
+            "op": "=",
+            "text": "nonRecoverable",
+            "value": "6"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": true,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 4,
+          "x": 8,
+          "y": 1
+        },
+        "id": 33,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "systemStateMemoryDeviceStatusCombined{instance=\"$instance\"}",
+            "format": "time_series",
+            "hide": false,
+            "instant": true,
+            "intervalFactor": 1,
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "thresholds": "4,5",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "MEMORY ISSUES (RAM)",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "other",
+            "value": "0"
+          },
+          {
+            "op": "=",
+            "text": "unknown",
+            "value": "2"
+          },
+          {
+            "op": "=",
+            "text": "OK",
+            "value": "3"
+          },
+          {
+            "op": "=",
+            "text": "WARNING",
+            "value": "4"
+          },
+          {
+            "op": "=",
+            "text": "CRITICAL",
+            "value": "5"
+          },
+          {
+            "op": "=",
+            "text": "nonRecoverable",
+            "value": "6"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": true,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 2,
+          "x": 12,
+          "y": 1
+        },
+        "id": 32,
+        "interval": "",
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "count(physicalDiskComponentStatus{instance=\"$instance\"}!=3) or vector(0)",
+            "format": "time_series",
+            "hide": false,
+            "instant": true,
+            "intervalFactor": 1,
+            "legendFormat": "Unhealthy",
+            "refId": "A"
+          }
+        ],
+        "thresholds": "null,0.5",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "DISK ISSUES",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "OK",
+            "value": "null"
+          },
+          {
+            "op": "=",
+            "text": "OK",
+            "value": "0"
+          },
+          {
+            "op": "=",
+            "text": "not OK",
+            "value": "1"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": true,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 2,
+          "x": 14,
+          "y": 1
+        },
+        "id": 50,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "sum(controllerRollUpStatus{instance=\"$instance\"})/count(controllerRollUpStatus{instance=\"$instance\"})",
+            "format": "time_series",
+            "hide": false,
+            "instant": true,
+            "intervalFactor": 1,
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "thresholds": "4,5",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "RAID status",
+        "type": "singlestat",
+        "valueFontSize": "70%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "other",
+            "value": "0"
+          },
+          {
+            "op": "=",
+            "text": "unknown",
+            "value": "2"
+          },
+          {
+            "op": "=",
+            "text": "OK",
+            "value": "3"
+          },
+          {
+            "op": "=",
+            "text": "WARNING",
+            "value": "4"
+          },
+          {
+            "op": "=",
+            "text": "CRITICAL",
+            "value": "5"
+          },
+          {
+            "op": "=",
+            "text": "nonRecoverable",
+            "value": "6"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": true,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 2,
+          "x": 16,
+          "y": 1
+        },
+        "id": 36,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "systemStateBatteryStatusCombined{instance=\"$instance\"}",
+            "format": "time_series",
+            "hide": false,
+            "instant": true,
+            "intervalFactor": 1,
+            "legendFormat": "Unhealthy",
+            "refId": "A"
+          }
+        ],
+        "thresholds": "null,4",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "RAID BATTERY",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "other",
+            "value": "0"
+          },
+          {
+            "op": "=",
+            "text": "unknown",
+            "value": "2"
+          },
+          {
+            "op": "=",
+            "text": "OK",
+            "value": "3"
+          },
+          {
+            "op": "=",
+            "text": "WARNING",
+            "value": "4"
+          },
+          {
+            "op": "=",
+            "text": "CRITICAL",
+            "value": "5"
+          },
+          {
+            "op": "=",
+            "text": "nonRecoverable",
+            "value": "6"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": true,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 2,
+          "x": 18,
+          "y": 1
+        },
+        "id": 35,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "systemStateCoolingDeviceStatusCombined{instance=\"$instance\"}",
+            "format": "time_series",
+            "instant": true,
+            "intervalFactor": 1,
+            "refId": "A"
+          }
+        ],
+        "thresholds": "4,6",
+        "title": "FAN status",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "Other",
+            "value": "1"
+          },
+          {
+            "op": "=",
+            "text": "Unknown",
+            "value": "2"
+          },
+          {
+            "op": "=",
+            "text": "OK",
+            "value": "3"
+          },
+          {
+            "op": "=",
+            "text": "Warning",
+            "value": "4"
+          },
+          {
+            "op": "=",
+            "text": "Critical",
+            "value": "5"
+          },
+          {
+            "op": "=",
+            "text": "nonRecoverable",
+            "value": "6"
+          }
+        ],
+        "valueName": "avg"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": true,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 2,
+          "x": 20,
+          "y": 1
+        },
+        "id": 34,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "powerSupplyStatus{instance=\"$instance\", powerSupplyIndex=\"1\"}",
+            "format": "time_series",
+            "instant": true,
+            "intervalFactor": 1,
+            "refId": "A"
+          }
+        ],
+        "thresholds": "4,6",
+        "title": "Power 1 - Status",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "Other",
+            "value": "1"
+          },
+          {
+            "op": "=",
+            "text": "Unknown",
+            "value": "2"
+          },
+          {
+            "op": "=",
+            "text": "OK",
+            "value": "3"
+          },
+          {
+            "op": "=",
+            "text": "Warning",
+            "value": "4"
+          },
+          {
+            "op": "=",
+            "text": "Critical",
+            "value": "5"
+          },
+          {
+            "op": "=",
+            "text": "nonRecoverable",
+            "value": "6"
+          }
+        ],
+        "valueName": "avg"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": true,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 2,
+          "x": 22,
+          "y": 1
+        },
+        "id": 47,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "count(networkDeviceConnectionStatus{instance=\"$instance\"}>4) or vector(0)",
+            "format": "time_series",
+            "instant": true,
+            "intervalFactor": 1,
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "thresholds": "null,0.5",
+        "title": "Netw Dev",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "OK",
+            "value": "null"
+          },
+          {
+            "op": "=",
+            "text": "OK",
+            "value": "0"
+          },
+          {
+            "op": "=",
+            "text": "not OK",
+            "value": "1"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 2,
+          "x": 0,
+          "y": 3
+        },
+        "id": 45,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "serverServiceTag{instance=\"$instance\"}",
+            "format": "time_series",
+            "instant": true,
+            "intervalFactor": 1,
+            "legendFormat": "{{serverServiceTag}}",
+            "refId": "A"
+          }
+        ],
+        "thresholds": "",
+        "title": "serviceTag",
+        "type": "singlestat",
+        "valueFontSize": "70%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "name"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": true,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 2,
+          "x": 2,
+          "y": 3
+        },
+        "id": 49,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "systemBIOSStatus{instance=\"$instance\"}",
+            "format": "time_series",
+            "hide": false,
+            "instant": true,
+            "intervalFactor": 1,
+            "legendFormat": "Unhealthy",
+            "refId": "A"
+          }
+        ],
+        "thresholds": "4,5",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "BIOS",
+        "type": "singlestat",
+        "valueFontSize": "70%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "other",
+            "value": "0"
+          },
+          {
+            "op": "=",
+            "text": "unknown",
+            "value": "2"
+          },
+          {
+            "op": "=",
+            "text": "OK",
+            "value": "3"
+          },
+          {
+            "op": "=",
+            "text": "WARNING",
+            "value": "4"
+          },
+          {
+            "op": "=",
+            "text": "CRITICAL",
+            "value": "5"
+          },
+          {
+            "op": "=",
+            "text": "nonRecoverable",
+            "value": "6"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 2,
+          "x": 4,
+          "y": 3
+        },
+        "id": 2,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": " CPU",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "count(processorDeviceIndex{instance=\"$instance\"})",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "thresholds": "",
+        "title": "CPU",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 2,
+          "x": 6,
+          "y": 3
+        },
+        "id": 4,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": " core",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "sum(processorDeviceCoreCount{instance=\"$instance\"})",
+            "format": "time_series",
+            "instant": true,
+            "intervalFactor": 1,
+            "refId": "A"
+          }
+        ],
+        "thresholds": "",
+        "title": "CORES",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 2,
+          "x": 8,
+          "y": 3
+        },
+        "id": 38,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": " x ram",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "count(memoryDeviceSize{instance=\"$instance\"})",
+            "format": "time_series",
+            "instant": true,
+            "intervalFactor": 1,
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "thresholds": "",
+        "title": "RAM",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "decimals": 0,
+        "format": "kbytes",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 2,
+          "x": 10,
+          "y": 3
+        },
+        "id": 6,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "sum(memoryDeviceSize{instance=\"$instance\"})",
+            "format": "time_series",
+            "instant": true,
+            "intervalFactor": 1,
+            "refId": "A"
+          }
+        ],
+        "thresholds": "",
+        "title": "Size",
+        "type": "singlestat",
+        "valueFontSize": "70%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 2,
+          "x": 12,
+          "y": 3
+        },
+        "id": 39,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": " đĩa",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "count(physicalDiskComponentStatus{instance=\"$instance\"})",
+            "format": "time_series",
+            "instant": true,
+            "intervalFactor": 1,
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "thresholds": "",
+        "title": "Disks",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "decimals": 0,
+        "format": "mbytes",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 2,
+          "x": 14,
+          "y": 3
+        },
+        "id": 8,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "sum(physicalDiskCapacityInMB{instance=\"$instance\"})",
+            "format": "time_series",
+            "instant": true,
+            "intervalFactor": 1,
+            "refId": "A"
+          }
+        ],
+        "thresholds": "",
+        "title": "Storage size",
+        "type": "singlestat",
+        "valueFontSize": "70%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": true,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 2,
+          "x": 16,
+          "y": 3
+        },
+        "id": 52,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "systemStateTemperatureStatusCombined{instance=\"$instance\"}",
+            "format": "time_series",
+            "instant": true,
+            "intervalFactor": 1,
+            "refId": "A"
+          }
+        ],
+        "thresholds": "4,6",
+        "title": "Temp status",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "Other",
+            "value": "1"
+          },
+          {
+            "op": "=",
+            "text": "Unknown",
+            "value": "2"
+          },
+          {
+            "op": "=",
+            "text": "OK",
+            "value": "3"
+          },
+          {
+            "op": "=",
+            "text": "Warning",
+            "value": "4"
+          },
+          {
+            "op": "=",
+            "text": "Critical",
+            "value": "5"
+          },
+          {
+            "op": "=",
+            "text": "nonRecoverable",
+            "value": "6"
+          }
+        ],
+        "valueName": "avg"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": true,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 2,
+          "x": 18,
+          "y": 3
+        },
+        "id": 16,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "systemStateCoolingUnitStatusCombined{instance=\"$instance\"}",
+            "format": "time_series",
+            "instant": true,
+            "intervalFactor": 1,
+            "refId": "A"
+          }
+        ],
+        "thresholds": "4,6",
+        "title": "CoolingUnit ",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "Other",
+            "value": "1"
+          },
+          {
+            "op": "=",
+            "text": "Unknown",
+            "value": "2"
+          },
+          {
+            "op": "=",
+            "text": "OK",
+            "value": "3"
+          },
+          {
+            "op": "=",
+            "text": "Warning",
+            "value": "4"
+          },
+          {
+            "op": "=",
+            "text": "Critical",
+            "value": "5"
+          },
+          {
+            "op": "=",
+            "text": "nonRecoverable",
+            "value": "6"
+          }
+        ],
+        "valueName": "avg"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": true,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 2,
+          "x": 20,
+          "y": 3
+        },
+        "id": 18,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "powerSupplyStatus{instance=\"$instance\", powerSupplyIndex=\"2\"}",
+            "format": "time_series",
+            "instant": true,
+            "intervalFactor": 1,
+            "refId": "A"
+          }
+        ],
+        "thresholds": "4,6",
+        "title": "Power 2 - Status",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "Other",
+            "value": "1"
+          },
+          {
+            "op": "=",
+            "text": "Unknown",
+            "value": "2"
+          },
+          {
+            "op": "=",
+            "text": "OK",
+            "value": "3"
+          },
+          {
+            "op": "=",
+            "text": "Warning",
+            "value": "4"
+          },
+          {
+            "op": "=",
+            "text": "Critical",
+            "value": "5"
+          },
+          {
+            "op": "=",
+            "text": "nonRecoverable",
+            "value": "6"
+          }
+        ],
+        "valueName": "avg"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorPostfix": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "description": "",
+        "format": "watt",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 2,
+          "x": 22,
+          "y": 3
+        },
+        "id": 20,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "repeat": null,
+        "repeatDirection": "h",
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": true,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "amperageProbeReading{instance=\"$instance\"} > 20",
+            "format": "time_series",
+            "instant": false,
+            "interval": "",
+            "intervalFactor": 1,
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "thresholds": "85.95",
+        "title": "POWER",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "avg"
+      },
+      {
+        "collapsed": false,
+        "datasource": null,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 5
+        },
+        "id": 44,
+        "panels": [],
+        "title": "Detail Info:  $ip_address",
+        "type": "row"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": true,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "format": "celsius",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 4,
+          "x": 0,
+          "y": 6
+        },
+        "id": 22,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "pluginVersion": "6.5.1",
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false,
+          "ymax": null,
+          "ymin": null
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "(temperatureProbeReading{instance=\"$instance\"}/10) + on (temperatureProbeIndex) group_left(temperatureProbeLocationName) (temperatureProbeLocationName{temperatureProbeLocationName=~\".*Inlet.*\",instance=\"$instance\"})*0",
+            "format": "time_series",
+            "hide": false,
+            "interval": "",
+            "intervalFactor": 1,
+            "legendFormat": "{{temperatureProbeLocationName}}",
+            "refId": "B"
+          }
+        ],
+        "thresholds": "43,47",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Inlet temp",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "columns": [],
+        "datasource": null,
+        "fontSize": "80%",
+        "gridPos": {
+          "h": 5,
+          "w": 8,
+          "x": 4,
+          "y": 6
+        },
+        "id": 51,
+        "links": [],
+        "options": {},
+        "pageSize": null,
+        "pluginVersion": "6.5.1",
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 12,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "Device name",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "controllerDisplayName",
+            "thresholds": [],
+            "type": "string",
+            "unit": "short"
+          },
+          {
+            "alias": "Status",
+            "colorMode": "cell",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "link": false,
+            "mappingType": 1,
+            "pattern": "Value",
+            "preserveFormat": false,
+            "sanitize": false,
+            "thresholds": [
+              "4",
+              "5"
+            ],
+            "type": "string",
+            "unit": "short",
+            "valueMaps": [
+              {
+                "text": "Other",
+                "value": "1"
+              },
+              {
+                "text": "Unknow",
+                "value": "2"
+              },
+              {
+                "text": "OK",
+                "value": "3"
+              },
+              {
+                "text": "Non-critical",
+                "value": "4"
+              },
+              {
+                "text": "Critical",
+                "value": "5"
+              },
+              {
+                "text": "Non-recoverable",
+                "value": "6"
+              }
+            ]
+          },
+          {
+            "alias": "Description",
+            "colorMode": null,
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": null,
+            "mappingType": 1,
+            "pattern": "controllerDescription",
+            "preserveFormat": false,
+            "sanitize": false,
+            "thresholds": [
+              "600.900"
+            ],
+            "type": "string",
+            "unit": "none",
+            "valueMaps": [
+              {
+                "text": "Unknow",
+                "value": "0"
+              },
+              {
+                "text": "Connected",
+                "value": "1"
+              },
+              {
+                "text": "Disconnected",
+                "value": "2"
+              },
+              {
+                "text": "Driver Bad",
+                "value": "4"
+              },
+              {
+                "text": "Driver Disabled",
+                "value": "4"
+              },
+              {
+                "text": "Initializing",
+                "value": "10"
+              },
+              {
+                "text": "Resetting",
+                "value": "11"
+              }
+            ]
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": ".*",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "expr": "controllerRollUpStatus{instance=\"$instance\"}* on (controllerNumber) group_left(controllerDescription) (controllerDescription{instance=\"$instance\"})",
+            "format": "table",
+            "hide": true,
+            "instant": true,
+            "legendFormat": "",
+            "refId": "A"
+          },
+          {
+            "expr": "controllerRollUpStatus{instance=\"$instance\"}",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "legendFormat": "",
+            "refId": "B"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Controller Device (RAID)",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "columns": [],
+        "datasource": null,
+        "description": "$ip_address",
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 5,
+          "w": 12,
+          "x": 12,
+          "y": 6
+        },
+        "id": 46,
+        "links": [],
+        "options": {},
+        "pageSize": null,
+        "pluginVersion": "6.5.1",
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 7,
+          "desc": false
+        },
+        "styles": [
+          {
+            "alias": "Name",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "networkDeviceProductName",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "alias": "Device health",
+            "colorMode": "cell",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Value #A",
+            "thresholds": [
+              "5",
+              "6"
+            ],
+            "type": "string",
+            "unit": "short",
+            "valueMaps": [
+              {
+                "text": "Other",
+                "value": "1"
+              },
+              {
+                "text": "Unknow",
+                "value": "2"
+              },
+              {
+                "text": "OK",
+                "value": "3"
+              },
+              {
+                "text": "Non-critical",
+                "value": "4"
+              },
+              {
+                "text": "Critical",
+                "value": "5"
+              },
+              {
+                "text": "Non-recoverable",
+                "value": "6"
+              }
+            ]
+          },
+          {
+            "alias": "Connection",
+            "colorMode": "cell",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Value #B",
+            "thresholds": [
+              "2",
+              "3"
+            ],
+            "type": "string",
+            "unit": "short",
+            "valueMaps": [
+              {
+                "text": "Unknow",
+                "value": "0"
+              },
+              {
+                "text": "Connected",
+                "value": "1"
+              },
+              {
+                "text": "Disconnected",
+                "value": "2"
+              },
+              {
+                "text": "Driver Bad",
+                "value": "4"
+              },
+              {
+                "text": "Driver Disabled",
+                "value": "4"
+              },
+              {
+                "text": "Initializing",
+                "value": "10"
+              },
+              {
+                "text": "Resetting",
+                "value": "11"
+              }
+            ]
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": ".*",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "expr": "0*networkDeviceConnectionStatus{instance=\"$instance\",networkDeviceProductName=~\".*Intel.*Ethernet.*\"}+ on (networkDeviceNumber) group_left(networkDeviceStatus) (networkDeviceStatus{instance=\"$instance\"})",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "legendFormat": "",
+            "refId": "A"
+          },
+          {
+            "expr": "networkDeviceConnectionStatus{instance=\"$instance\",networkDeviceProductName=~\".*Intel.*Ethernet.*\"}",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "legendFormat": "",
+            "refId": "B"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": " Network devices $ip_address",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "columns": [
+          {
+            "text": "Current",
+            "value": "current"
+          }
+        ],
+        "datasource": "Prometheus",
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 4,
+          "w": 4,
+          "x": 0,
+          "y": 8
+        },
+        "id": 29,
+        "links": [],
+        "options": {},
+        "pageSize": null,
+        "pluginVersion": "6.5.1",
+        "showHeader": true,
+        "sort": {
+          "col": 0,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Metric",
+            "thresholds": [
+              ""
+            ],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": "row",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 1,
+            "mappingType": 1,
+            "pattern": "Current",
+            "thresholds": [
+              "89",
+              "90"
+            ],
+            "type": "number",
+            "unit": "celsius"
+          }
+        ],
+        "targets": [
+          {
+            "expr": "(temperatureProbeReading{instance=\"$instance\"}/10) + on (temperatureProbeIndex) group_left(temperatureProbeLocationName) (temperatureProbeLocationName{temperatureProbeLocationName=~\"CPU.*\",instance=\"$instance\"})*0",
+            "format": "time_series",
+            "hide": false,
+            "intervalFactor": 1,
+            "legendFormat": "{{temperatureProbeLocationName}}",
+            "refId": "B"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "CPU temperature",
+        "transform": "timeseries_aggregations",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "columns": [],
+        "datasource": null,
+        "fontSize": "80%",
+        "gridPos": {
+          "h": 6,
+          "w": 7,
+          "x": 4,
+          "y": 11
+        },
+        "id": 48,
+        "links": [],
+        "options": {},
+        "pageSize": null,
+        "pluginVersion": "6.5.1",
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 11,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "Device name",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "coolingDeviceLocationName",
+            "preserveFormat": false,
+            "thresholds": [],
+            "type": "string",
+            "unit": "short"
+          },
+          {
+            "alias": "Device health",
+            "colorMode": "cell",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "link": false,
+            "mappingType": 1,
+            "pattern": "Value #C",
+            "preserveFormat": false,
+            "sanitize": false,
+            "thresholds": [
+              "5",
+              "6"
+            ],
+            "type": "string",
+            "unit": "short",
+            "valueMaps": [
+              {
+                "text": "Other",
+                "value": "1"
+              },
+              {
+                "text": "Unknow",
+                "value": "2"
+              },
+              {
+                "text": "OK",
+                "value": "3"
+              },
+              {
+                "text": "Non-critical",
+                "value": "4"
+              },
+              {
+                "text": "Critical",
+                "value": "5"
+              },
+              {
+                "text": "Non-recoverable",
+                "value": "6"
+              }
+            ]
+          },
+          {
+            "alias": "Fan speed (RPM)",
+            "colorMode": null,
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": null,
+            "mappingType": 1,
+            "pattern": "Value #B",
+            "preserveFormat": false,
+            "sanitize": false,
+            "thresholds": [
+              "600.900"
+            ],
+            "type": "number",
+            "unit": "none",
+            "valueMaps": [
+              {
+                "text": "Unknow",
+                "value": "0"
+              },
+              {
+                "text": "Connected",
+                "value": "1"
+              },
+              {
+                "text": "Disconnected",
+                "value": "2"
+              },
+              {
+                "text": "Driver Bad",
+                "value": "4"
+              },
+              {
+                "text": "Driver Disabled",
+                "value": "4"
+              },
+              {
+                "text": "Initializing",
+                "value": "10"
+              },
+              {
+                "text": "Resetting",
+                "value": "11"
+              }
+            ]
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": ".*",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "expr": "coolingDeviceStatus{instance=\"$instance\"}",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "legendFormat": "",
+            "refId": "C"
+          },
+          {
+            "expr": "0*coolingDeviceStatus{instance=\"$instance\"}+ on (coolingDeviceNumber) group_left(coolingDeviceReading) (coolingDeviceReading{instance=\"$instance\"})",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "legendFormat": "",
+            "refId": "B"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": " Cooling devices (FAN)",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "Prometheus",
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 6,
+          "w": 13,
+          "x": 11,
+          "y": 11
+        },
+        "hiddenSeries": false,
+        "id": 28,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "links": [],
+        "nullPointMode": "null",
+        "options": {
+          "dataLinks": []
+        },
+        "percentage": false,
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "expr": "(temperatureProbeReading{instance=\"$instance\"}/10) + on (temperatureProbeIndex) group_left(temperatureProbeLocationName) (temperatureProbeLocationName{instance=\"$instance\"})",
+            "format": "time_series",
+            "hide": false,
+            "intervalFactor": 1,
+            "legendFormat": "{{temperatureProbeLocationName}}",
+            "refId": "A"
+          },
+          {
+            "expr": "",
+            "format": "table",
+            "instant": false,
+            "intervalFactor": 1,
+            "legendFormat": "",
+            "refId": "B"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "Server temperature sensors",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "celsius",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": true,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "Prometheus",
+        "format": "celsius",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 4,
+          "x": 0,
+          "y": 12
+        },
+        "id": 30,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "pluginVersion": "6.5.1",
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false,
+          "ymax": null,
+          "ymin": null
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "(temperatureProbeReading{instance=\"$instance\"}/10) + on (temperatureProbeIndex) group_left(temperatureProbeLocationName) (temperatureProbeLocationName{temperatureProbeLocationName=~\".*Exhaust.*\",instance=\"$instance\"})*0",
+            "format": "time_series",
+            "hide": false,
+            "interval": "",
+            "intervalFactor": 1,
+            "legendFormat": "{{temperatureProbeLocationName}}",
+            "refId": "B"
+          }
+        ],
+        "thresholds": "75,80",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Exhaust temp",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "columns": [],
+        "datasource": null,
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 11,
+          "w": 4,
+          "x": 0,
+          "y": 14
+        },
+        "id": 25,
+        "links": [],
+        "options": {},
+        "pageSize": null,
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 7,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "pattern": "Time",
+            "type": "hidden"
+          },
+          {
+            "alias": "Size",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Value",
+            "thresholds": [],
+            "type": "number",
+            "unit": "kbytes"
+          },
+          {
+            "alias": "Memory slot",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "mappingType": 1,
+            "pattern": "memoryDeviceIndex",
+            "thresholds": [],
+            "type": "string",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": ".*",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "expr": "(memoryDeviceSize{instance=\"$instance\"})  ",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "intervalFactor": 1,
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "title": "Memory",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "columns": [],
+        "datasource": null,
+        "fontSize": "90%",
+        "gridPos": {
+          "h": 9,
+          "w": 20,
+          "x": 4,
+          "y": 17
+        },
+        "id": 24,
+        "links": [],
+        "options": {},
+        "pageSize": null,
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 14,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "pattern": "Time",
+            "type": "hidden"
+          },
+          {
+            "alias": "Size",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Value",
+            "thresholds": [],
+            "type": "number",
+            "unit": "mbytes"
+          },
+          {
+            "alias": "No",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "physicalDiskNumber",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "hostname",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "device_type",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "instance",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "Model",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "physicalDiskProductID",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "alias": "Serial",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "physicalDiskSerialNo",
+            "thresholds": [],
+            "type": "string",
+            "unit": "short",
+            "valueMaps": [
+              {
+                "text": "N/A",
+                "value": ""
+              }
+            ]
+          },
+          {
+            "alias": "Location",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "physicalDiskDisplayName",
+            "thresholds": [],
+            "type": "string",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "env",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "__name__",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "Size",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Value #A",
+            "thresholds": [],
+            "type": "number",
+            "unit": "mbytes"
+          },
+          {
+            "alias": "Status",
+            "colorMode": "cell",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "mappingType": 1,
+            "pattern": "Value #B",
+            "thresholds": [
+              "4",
+              "5"
+            ],
+            "type": "string",
+            "unit": "short",
+            "valueMaps": [
+              {
+                "text": "Other",
+                "value": "1"
+              },
+              {
+                "text": "Unknown",
+                "value": "2"
+              },
+              {
+                "text": "OK",
+                "value": "3"
+              },
+              {
+                "text": "Non-critical",
+                "value": "4"
+              },
+              {
+                "text": "Critical",
+                "value": "5"
+              },
+              {
+                "text": "Non-recoverable",
+                "value": "6"
+              }
+            ]
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "function",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "No",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "physicalDiskNumber",
+            "thresholds": [],
+            "type": "string",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": ".*",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "expr": "(physicalDiskCapacityInMB{instance=\"$instance\"}) + on (physicalDiskNumber) group_left(physicalDiskDisplayName) (physicalDiskDisplayName{instance=\"$instance\"}) + on (physicalDiskNumber) group_left(physicalDiskProductID) (physicalDiskProductID{instance=\"$instance\"})  + on (physicalDiskNumber) group_left(physicalDiskSerialNo) (physicalDiskSerialNo{instance=\"$instance\"}) ",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "intervalFactor": 1,
+            "legendFormat": "",
+            "refId": "A"
+          },
+          {
+            "expr": "physicalDiskComponentStatus{instance=\"$instance\"}",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "intervalFactor": 1,
+            "refId": "B"
+          }
+        ],
+        "title": "Hard drive details",
+        "transform": "table",
+        "type": "table"
+      }
+    ],
+    "refresh": "5s",
+    "schemaVersion": 21,
+    "style": "dark",
+    "tags": [
+      "hardware-detail"
+    ],
+    "templating": {
+      "list": [
+        {
+          "allValue": null,
+          "current": {
+            "text": "HCM-DC8",
+            "value": [
+              "HCM-DC8"
+            ]
+          },
+          "datasource": "Prometheus",
+          "definition": "label_values(      globalSystemStatus{ job=\"snmp-dell-hardware\" }  ,location_server) ",
+          "hide": 0,
+          "includeAll": false,
+          "label": "location_server",
+          "multi": false,
+          "name": "location_server",
+          "options": [],
+          "query": "label_values(      globalSystemStatus{ job=\"snmp-dell-hardware\" }  ,location_server) ",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "tagValuesQuery": "",
+          "tags": [],
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
+        },
+        {
+          "allValue": null,
+          "current": {
+            "text": "Elasticsearch",
+            "value": "Elasticsearch"
+          },
+          "datasource": "Prometheus",
+          "definition": "label_values( globalSystemStatus{ job=\"snmp-dell-hardware\" ,location_server=\"$location_server\"},func_server)",
+          "hide": 0,
+          "includeAll": false,
+          "label": "func_server",
+          "multi": false,
+          "name": "func_server",
+          "options": [],
+          "query": "label_values( globalSystemStatus{ job=\"snmp-dell-hardware\" ,location_server=\"$location_server\"},func_server)",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "tagValuesQuery": "",
+          "tags": [],
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
+        },
+        {
+          "allValue": null,
+          "current": {
+            "text": "http://192.168.2.178",
+            "value": "http://192.168.2.178"
+          },
+          "datasource": "Prometheus",
+          "definition": "label_values( globalSystemStatus{ job=\"snmp-dell-hardware\" ,location_server=\"$location_server\" ,func_server=\"$func_server\"},instance)",
+          "hide": 0,
+          "includeAll": false,
+          "label": "instance",
+          "multi": false,
+          "name": "instance",
+          "options": [],
+          "query": "label_values( globalSystemStatus{ job=\"snmp-dell-hardware\" ,location_server=\"$location_server\" ,func_server=\"$func_server\"},instance)",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "tagValuesQuery": "",
+          "tags": [],
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
+        },
+        {
+          "allValue": null,
+          "current": {
+            "text": "26VL643",
+            "value": "26VL643"
+          },
+          "datasource": "Prometheus",
+          "definition": "label_values( serverServiceTag{ job=\"snmp-dell-hardware\" ,instance=~\"$instance\"},serverServiceTag)",
+          "hide": 2,
+          "includeAll": false,
+          "label": "serverServiceTag",
+          "multi": false,
+          "name": "serverServiceTag",
+          "options": [],
+          "query": "label_values( serverServiceTag{ job=\"snmp-dell-hardware\" ,instance=~\"$instance\"},serverServiceTag)",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "tagValuesQuery": "",
+          "tags": [],
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
+        },
+        {
+          "allValue": null,
+          "current": {
+            "text": "42.118.242.178",
+            "value": "42.118.242.178"
+          },
+          "datasource": "Prometheus",
+          "definition": "label_values( serverServiceTag{ job=\"snmp-dell-hardware\" ,instance=~\"$instance\"},ip_address)",
+          "hide": 2,
+          "includeAll": false,
+          "label": "ip_address",
+          "multi": false,
+          "name": "ip_address",
+          "options": [],
+          "query": "label_values( serverServiceTag{ job=\"snmp-dell-hardware\" ,instance=~\"$instance\"},ip_address)",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "tagValuesQuery": "",
+          "tags": [],
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
+        },
+        {
+          "allValue": null,
+          "current": {
+            "text": "F10",
+            "value": "F10"
+          },
+          "datasource": "Prometheus",
+          "definition": "label_values( serverServiceTag{ job=\"snmp-dell-hardware\" ,instance=~\"$instance\"},rack)",
+          "hide": 2,
+          "includeAll": false,
+          "label": "rack",
+          "multi": false,
+          "name": "rack",
+          "options": [],
+          "query": "label_values( serverServiceTag{ job=\"snmp-dell-hardware\" ,instance=~\"$instance\"},rack)",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "tagValuesQuery": "",
+          "tags": [],
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
+        },
+        {
+          "allValue": null,
+          "current": {
+            "text": "30",
+            "value": "30"
+          },
+          "datasource": "Prometheus",
+          "definition": "label_values( serverServiceTag{ job=\"snmp-dell-hardware\" ,instance=~\"$instance\"},unit)",
+          "hide": 2,
+          "includeAll": false,
+          "label": "unit",
+          "multi": false,
+          "name": "unit",
+          "options": [],
+          "query": "label_values( serverServiceTag{ job=\"snmp-dell-hardware\" ,instance=~\"$instance\"},unit)",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "tagValuesQuery": "",
+          "tags": [],
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
+        }
+      ]
+    },
+    "time": {
+      "from": "now-30m",
+      "to": "now"
+    },
+    "timepicker": {
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ]
+    },
+    "timezone": "",
+    "title": "Hardware - Dell - Detail",
+    "uid": "FFCbgSiIz",
+    "version": 142
+  }

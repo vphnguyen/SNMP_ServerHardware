@@ -1,0 +1,2269 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": 279,
+    "iteration": 1695714640449,
+    "links": [
+      {
+        "asDropdown": true,
+        "icon": "external link",
+        "tags": [
+          "search"
+        ],
+        "title": "Searching",
+        "type": "dashboards"
+      },
+      {
+        "asDropdown": true,
+        "icon": "external link",
+        "tags": [
+          "hardware-overview"
+        ],
+        "title": "OVERVIEW",
+        "type": "dashboards"
+      },
+      {
+        "asDropdown": true,
+        "icon": "external link",
+        "keepTime": false,
+        "tags": [
+          "hardware-detail"
+        ],
+        "targetBlank": false,
+        "title": "DETAIL",
+        "type": "dashboards"
+      }
+    ],
+    "panels": [
+      {
+        "cacheTimeout": null,
+        "content": "\n\n<a><img src=\"https://cdn4.iconfinder.com/data/icons/small-n-flat/24/heart-64.png\" width=auto height=\"105\" ></a> ",
+        "datasource": null,
+        "gridPos": {
+          "h": 7,
+          "w": 2,
+          "x": 0,
+          "y": 0
+        },
+        "id": 70,
+        "links": [],
+        "mode": "html",
+        "options": {},
+        "pluginVersion": "6.5.1",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "HEALTH",
+        "transparent": true,
+        "type": "text"
+      },
+      {
+        "cacheTimeout": null,
+        "columns": [],
+        "datasource": null,
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 7,
+          "w": 20,
+          "x": 2,
+          "y": 0
+        },
+        "id": 58,
+        "links": [],
+        "options": {},
+        "pageSize": null,
+        "pluginVersion": "6.5.1",
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 5,
+          "desc": false
+        },
+        "styles": [
+          {
+            "alias": "Device health",
+            "colorMode": "cell",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "link": false,
+            "mappingType": 1,
+            "pattern": "Value",
+            "preserveFormat": false,
+            "sanitize": false,
+            "thresholds": [
+              "4",
+              "5"
+            ],
+            "type": "string",
+            "unit": "short",
+            "valueMaps": [
+              {
+                "text": "Other",
+                "value": "1"
+              },
+              {
+                "text": "Unknow",
+                "value": "2"
+              },
+              {
+                "text": "OK",
+                "value": "3"
+              },
+              {
+                "text": "Warning",
+                "value": "4"
+              },
+              {
+                "text": "Critical",
+                "value": "5"
+              },
+              {
+                "text": "Non-recoverable",
+                "value": "6"
+              }
+            ]
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Time",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "job",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "expr": "(0*serverServiceTag{location_server=~\"$location_server\"}+ on (instance) group_left(globalSystemStatus) (globalSystemStatus{location_server=~\"$location_server\"}))!=3",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "HEALTH",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorPostfix": true,
+        "colorPrefix": false,
+        "colorValue": true,
+        "colors": [
+          "#d44a3a",
+          "rgba(237, 129, 40, 0.89)",
+          "#299c46"
+        ],
+        "datasource": null,
+        "decimals": 0,
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 22,
+          "y": 0
+        },
+        "id": 83,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": "",
+        "postfixFontSize": "100%",
+        "prefix": "",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": true,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": true,
+          "ymax": null,
+          "ymin": 0
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "count(up{job=\"snmp-dell-hardware\"})",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "thresholds": "null,0",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Monitoring",
+        "transparent": true,
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorPostfix": true,
+        "colorPrefix": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": null,
+        "decimals": 0,
+        "description": "",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 2,
+          "x": 22,
+          "y": 4
+        },
+        "id": 80,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "options": {},
+        "postfix": " svr",
+        "postfixFontSize": "100%",
+        "prefix": "",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": true,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": true,
+          "ymax": null,
+          "ymin": 0
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "expr": "count(up{job=\"snmp-dell-hardware\"}==0)",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "thresholds": "1,2",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Cannot scrape",
+        "transparent": true,
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "avg"
+      },
+      {
+        "cacheTimeout": null,
+        "content": "\n\n<a><img src=\"https://cdn3.iconfinder.com/data/icons/basicolor-computer-tech/24/106_power_turn_on-64.png\" width=auto height=\"105\" ></a> ",
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 0,
+          "y": 7
+        },
+        "id": 62,
+        "links": [],
+        "mode": "html",
+        "options": {},
+        "pluginVersion": "6.5.1",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "POWER",
+        "transparent": true,
+        "type": "text"
+      },
+      {
+        "cacheTimeout": null,
+        "columns": [],
+        "datasource": null,
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 4,
+          "w": 22,
+          "x": 2,
+          "y": 7
+        },
+        "id": 54,
+        "links": [],
+        "options": {},
+        "pageSize": null,
+        "pluginVersion": "6.5.1",
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 1,
+          "desc": false
+        },
+        "styles": [
+          {
+            "alias": "Device health",
+            "colorMode": "cell",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "link": false,
+            "mappingType": 1,
+            "pattern": "Value",
+            "preserveFormat": false,
+            "sanitize": false,
+            "thresholds": [
+              "3.5",
+              "4"
+            ],
+            "type": "string",
+            "unit": "short",
+            "valueMaps": [
+              {
+                "text": "Other",
+                "value": "1"
+              },
+              {
+                "text": "Unknow",
+                "value": "2"
+              },
+              {
+                "text": "OFF",
+                "value": "3"
+              },
+              {
+                "text": "ON",
+                "value": "4"
+              }
+            ]
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Time",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "job",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "expr": "(0*serverServiceTag{location_server=~\"$location_server\"}+ on (instance) group_left(systemPowerState) (systemPowerState{location_server=~\"$location_server\"}))!=4",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "SERVER OFF",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "content": "\n\n<a><img src=\"https://cdn0.iconfinder.com/data/icons/computer-and-hardware-free/32/Computer__Computer_Hardware_CPU_Processor_Technology-64.png\" width=auto height=\"110\" ></a> ",
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 0,
+          "y": 11
+        },
+        "id": 57,
+        "links": [],
+        "mode": "html",
+        "options": {},
+        "pluginVersion": "6.5.1",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "CPU",
+        "transparent": true,
+        "type": "text"
+      },
+      {
+        "cacheTimeout": null,
+        "columns": [],
+        "datasource": null,
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 4,
+          "w": 22,
+          "x": 2,
+          "y": 11
+        },
+        "id": 73,
+        "links": [],
+        "options": {},
+        "pageSize": null,
+        "pluginVersion": "6.5.1",
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 1,
+          "desc": false
+        },
+        "styles": [
+          {
+            "alias": "Device health",
+            "colorMode": "cell",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "link": false,
+            "mappingType": 1,
+            "pattern": "Value",
+            "preserveFormat": false,
+            "sanitize": false,
+            "thresholds": [
+              "4",
+              "5"
+            ],
+            "type": "string",
+            "unit": "short",
+            "valueMaps": [
+              {
+                "text": "Other",
+                "value": "1"
+              },
+              {
+                "text": "Unknow",
+                "value": "2"
+              },
+              {
+                "text": "OK",
+                "value": "3"
+              },
+              {
+                "text": "Non-critical",
+                "value": "4"
+              },
+              {
+                "text": "Critical",
+                "value": "5"
+              },
+              {
+                "text": "Non-recoverable",
+                "value": "6"
+              }
+            ]
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Time",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "job",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "expr": "(0*serverServiceTag{location_server=~\"$location_server\"}+ on (instance) group_left(systemStateProcessorDeviceStatusCombined) (systemStateProcessorDeviceStatusCombined{location_server=~\"$location_server\"}))!=3",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "CPU",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "content": "\n<a><img src=\"https://cdn0.iconfinder.com/data/icons/computer-and-hardware-free/32/Computer__Computer_Hardware_RAM_Storage_Device_Memory_-64.png\" width=auto height=\"110\" ></a> ",
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 0,
+          "y": 15
+        },
+        "id": 59,
+        "links": [],
+        "mode": "html",
+        "options": {},
+        "pluginVersion": "6.5.1",
+        "targets": [
+          {
+            "aggregation": "Last",
+            "decimals": 2,
+            "displayAliasType": "Warning / Critical",
+            "displayType": "Regular",
+            "displayValueWithAlias": "Never",
+            "refId": "A",
+            "units": "none",
+            "valueHandler": "Number Threshold"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "RAM",
+        "transparent": true,
+        "type": "text"
+      },
+      {
+        "cacheTimeout": null,
+        "columns": [],
+        "datasource": null,
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 4,
+          "w": 22,
+          "x": 2,
+          "y": 15
+        },
+        "id": 60,
+        "links": [],
+        "options": {},
+        "pageSize": null,
+        "pluginVersion": "6.5.1",
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 1,
+          "desc": false
+        },
+        "styles": [
+          {
+            "alias": "Device health",
+            "colorMode": "cell",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "link": false,
+            "mappingType": 1,
+            "pattern": "Value",
+            "preserveFormat": false,
+            "sanitize": false,
+            "thresholds": [
+              "4",
+              "5"
+            ],
+            "type": "string",
+            "unit": "short",
+            "valueMaps": [
+              {
+                "text": "Other",
+                "value": "1"
+              },
+              {
+                "text": "Unknow",
+                "value": "2"
+              },
+              {
+                "text": "OK",
+                "value": "3"
+              },
+              {
+                "text": "Non-critical",
+                "value": "4"
+              },
+              {
+                "text": "Critical",
+                "value": "5"
+              },
+              {
+                "text": "Non-recoverable",
+                "value": "6"
+              }
+            ]
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Time",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "job",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "expr": "(0*serverServiceTag{location_server=~\"$location_server\"}+ on (instance) group_left(systemStateMemoryDeviceStatusCombined) (systemStateMemoryDeviceStatusCombined{location_server=~\"$location_server\"}))!=3",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "RAM",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "content": "<a><img src=\"https://cdn0.iconfinder.com/data/icons/computer-and-hardware-free/32/Computer__Computer_Hardware_Harddisk_Storage_Harddrive-128.png\" width=auto height=\"110\" ></a> ",
+        "datasource": null,
+        "gridPos": {
+          "h": 7,
+          "w": 2,
+          "x": 0,
+          "y": 19
+        },
+        "id": 61,
+        "links": [],
+        "mode": "html",
+        "options": {},
+        "pluginVersion": "6.5.1",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "DISK",
+        "transparent": true,
+        "type": "text"
+      },
+      {
+        "cacheTimeout": null,
+        "columns": [],
+        "datasource": null,
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 7,
+          "w": 22,
+          "x": 2,
+          "y": 19
+        },
+        "id": 63,
+        "links": [],
+        "options": {},
+        "pageSize": null,
+        "pluginVersion": "6.5.1",
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 1,
+          "desc": false
+        },
+        "styles": [
+          {
+            "alias": "Device health",
+            "colorMode": "cell",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "link": false,
+            "mappingType": 1,
+            "pattern": "Value",
+            "preserveFormat": false,
+            "sanitize": false,
+            "thresholds": [
+              "4",
+              "5"
+            ],
+            "type": "string",
+            "unit": "short",
+            "valueMaps": [
+              {
+                "text": "Other",
+                "value": "1"
+              },
+              {
+                "text": "Unknow",
+                "value": "2"
+              },
+              {
+                "text": "OK",
+                "value": "3"
+              },
+              {
+                "text": "Non-critical",
+                "value": "4"
+              },
+              {
+                "text": "Critical",
+                "value": "5"
+              },
+              {
+                "text": "Non-recoverable",
+                "value": "6"
+              }
+            ]
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Time",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "job",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "expr": " (physicalDiskComponentStatus{location_server=~\"$location_server\"})>3",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "DISK",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "content": "<a><img src=\"https://cdn2.iconfinder.com/data/icons/sports-and-games-44/66/72-64.png\" width=auto height=\"110\" ></a> ",
+        "datasource": null,
+        "gridPos": {
+          "h": 8,
+          "w": 2,
+          "x": 0,
+          "y": 26
+        },
+        "id": 64,
+        "links": [],
+        "mode": "html",
+        "options": {},
+        "pluginVersion": "6.5.1",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "RAID",
+        "transparent": true,
+        "type": "text"
+      },
+      {
+        "cacheTimeout": null,
+        "columns": [],
+        "datasource": null,
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 8,
+          "w": 22,
+          "x": 2,
+          "y": 26
+        },
+        "id": 65,
+        "links": [],
+        "options": {},
+        "pageSize": null,
+        "pluginVersion": "6.5.1",
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 1,
+          "desc": false
+        },
+        "styles": [
+          {
+            "alias": "Device health",
+            "colorMode": "cell",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "link": false,
+            "mappingType": 1,
+            "pattern": "Value",
+            "preserveFormat": false,
+            "sanitize": false,
+            "thresholds": [
+              "4",
+              "5"
+            ],
+            "type": "string",
+            "unit": "short",
+            "valueMaps": [
+              {
+                "text": "Other",
+                "value": "1"
+              },
+              {
+                "text": "Unknow",
+                "value": "2"
+              },
+              {
+                "text": "OK",
+                "value": "3"
+              },
+              {
+                "text": "Non-critical",
+                "value": "4"
+              },
+              {
+                "text": "Critical",
+                "value": "5"
+              },
+              {
+                "text": "Non-recoverable",
+                "value": "6"
+              }
+            ]
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Time",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "Location",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "location_server",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "alias": "Rack",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "rack",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "alias": "Unit",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "unit",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "alias": "Device Name",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "controllerDisplayName",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "alias": "Description",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "controllerDescription",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "alias": "IP Address",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "ip_address",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "alias": "Function ",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "func_server",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "alias": "iDrac",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "instance",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": ".*",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "expr": " controllerRollUpStatus{location_server=~\"$location_server\"}>3",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "interval": "",
+            "legendFormat": "{{rack}}.U{{unit}}",
+            "refId": "A"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "RAID",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "content": "<a><img src=\"https://cdn4.iconfinder.com/data/icons/leto-devices-1/64/battery_accumulator-64.png\" width=auto height=\"110\" ></a> ",
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 0,
+          "y": 34
+        },
+        "id": 72,
+        "links": [],
+        "mode": "html",
+        "options": {},
+        "pluginVersion": "6.5.1",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "RAID BATT",
+        "transparent": true,
+        "type": "text"
+      },
+      {
+        "cacheTimeout": null,
+        "columns": [],
+        "datasource": null,
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 4,
+          "w": 22,
+          "x": 2,
+          "y": 34
+        },
+        "id": 53,
+        "links": [],
+        "options": {},
+        "pageSize": null,
+        "pluginVersion": "6.5.1",
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 1,
+          "desc": false
+        },
+        "styles": [
+          {
+            "alias": "Device health",
+            "colorMode": "cell",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "link": false,
+            "mappingType": 1,
+            "pattern": "Value",
+            "preserveFormat": false,
+            "sanitize": false,
+            "thresholds": [
+              "4",
+              "5"
+            ],
+            "type": "string",
+            "unit": "short",
+            "valueMaps": [
+              {
+                "text": "Other",
+                "value": "1"
+              },
+              {
+                "text": "Unknow",
+                "value": "2"
+              },
+              {
+                "text": "OK",
+                "value": "3"
+              },
+              {
+                "text": "Non-critical",
+                "value": "4"
+              },
+              {
+                "text": "Critical",
+                "value": "5"
+              },
+              {
+                "text": "Non-recoverable",
+                "value": "6"
+              }
+            ]
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Time",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "job",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "expr": "(0*serverServiceTag{location_server=~\"$location_server\"}+ on (instance) group_left(systemStateProcessorDeviceStatusCombined) (systemStateProcessorDeviceStatusCombined{location_server=~\"$location_server\"}))!=3",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "RAID BATT",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "content": "<a><img src=\"https://cdn1.iconfinder.com/data/icons/computer-hardware-594/64/09.COOLING_SYSTEM-Computer-_Cooler-_Cooling-_Cpu-_Fan-_Heatsink-_System-Hardware-System-Unit-Pc-Desktop--64.png\" width=auto height=\"110\" ></a> ",
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 0,
+          "y": 38
+        },
+        "id": 71,
+        "links": [],
+        "mode": "html",
+        "options": {},
+        "pluginVersion": "6.5.1",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "POWER",
+        "transparent": true,
+        "type": "text"
+      },
+      {
+        "cacheTimeout": null,
+        "columns": [],
+        "datasource": null,
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 4,
+          "w": 22,
+          "x": 2,
+          "y": 38
+        },
+        "id": 74,
+        "links": [],
+        "options": {},
+        "pageSize": null,
+        "pluginVersion": "6.5.1",
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 1,
+          "desc": false
+        },
+        "styles": [
+          {
+            "alias": "Device health",
+            "colorMode": "cell",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "link": false,
+            "mappingType": 1,
+            "pattern": "Value",
+            "preserveFormat": false,
+            "sanitize": false,
+            "thresholds": [
+              "4",
+              "5"
+            ],
+            "type": "string",
+            "unit": "short",
+            "valueMaps": [
+              {
+                "text": "Other",
+                "value": "1"
+              },
+              {
+                "text": "Unknow",
+                "value": "2"
+              },
+              {
+                "text": "OK",
+                "value": "3"
+              },
+              {
+                "text": "Non-critical",
+                "value": "4"
+              },
+              {
+                "text": "Critical",
+                "value": "5"
+              },
+              {
+                "text": "Non-recoverable",
+                "value": "6"
+              }
+            ]
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Time",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "job",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "expr": "(0*serverServiceTag{location_server=~\"$location_server\"}+ on (instance) group_left(systemStateCoolingUnitStatusCombined) (systemStateCoolingUnitStatusCombined{location_server=~\"$location_server\"}))!=3",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "COOLING UNIT",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "content": "<a><img src=\"https://cdn0.iconfinder.com/data/icons/computer-and-hardware-free/32/Computer__Computer_Hardware_Fan_Cooling_Cooler-256.png\" width=auto height=\"110\" ></a> ",
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 0,
+          "y": 42
+        },
+        "id": 67,
+        "links": [],
+        "mode": "html",
+        "options": {},
+        "pluginVersion": "6.5.1",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "FAN",
+        "transparent": true,
+        "type": "text"
+      },
+      {
+        "cacheTimeout": null,
+        "columns": [],
+        "datasource": null,
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 4,
+          "w": 22,
+          "x": 2,
+          "y": 42
+        },
+        "id": 75,
+        "links": [],
+        "options": {},
+        "pageSize": null,
+        "pluginVersion": "6.5.1",
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 1,
+          "desc": false
+        },
+        "styles": [
+          {
+            "alias": "Device health",
+            "colorMode": "cell",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "link": false,
+            "mappingType": 1,
+            "pattern": "Value",
+            "preserveFormat": false,
+            "sanitize": false,
+            "thresholds": [
+              "4",
+              "5"
+            ],
+            "type": "string",
+            "unit": "short",
+            "valueMaps": [
+              {
+                "text": "Other",
+                "value": "1"
+              },
+              {
+                "text": "Unknow",
+                "value": "2"
+              },
+              {
+                "text": "OK",
+                "value": "3"
+              },
+              {
+                "text": "Non-critical",
+                "value": "4"
+              },
+              {
+                "text": "Critical",
+                "value": "5"
+              },
+              {
+                "text": "Non-recoverable",
+                "value": "6"
+              }
+            ]
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Time",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "job",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "expr": "(0*serverServiceTag{location_server=~\"$location_server\"}+ on (instance) group_left(systemStateCoolingDeviceStatusCombined) (systemStateCoolingDeviceStatusCombined{location_server=~\"$location_server\"}))!=3",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "FAN",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "content": "<a><img src=\"https://cdn1.iconfinder.com/data/icons/computer-hardware-594/64/02.POWER_SUPPLY-Hardware-_Power-_Supply-_Unit-System-Unit-Pc-Desktop-_-64.png\" width=auto height=\"110\" ></a> ",
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 0,
+          "y": 46
+        },
+        "id": 69,
+        "links": [],
+        "mode": "html",
+        "options": {},
+        "pluginVersion": "6.5.1",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "PowerSupplyUnit",
+        "transparent": true,
+        "type": "text"
+      },
+      {
+        "cacheTimeout": null,
+        "columns": [],
+        "datasource": null,
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 4,
+          "w": 22,
+          "x": 2,
+          "y": 46
+        },
+        "id": 76,
+        "links": [],
+        "options": {},
+        "pageSize": null,
+        "pluginVersion": "6.5.1",
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 1,
+          "desc": false
+        },
+        "styles": [
+          {
+            "alias": "Device health",
+            "colorMode": "cell",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "link": false,
+            "mappingType": 1,
+            "pattern": "Value",
+            "preserveFormat": false,
+            "sanitize": false,
+            "thresholds": [
+              "4",
+              "5"
+            ],
+            "type": "string",
+            "unit": "short",
+            "valueMaps": [
+              {
+                "text": "Other",
+                "value": "1"
+              },
+              {
+                "text": "Unknow",
+                "value": "2"
+              },
+              {
+                "text": "OK",
+                "value": "3"
+              },
+              {
+                "text": "Non-critical",
+                "value": "4"
+              },
+              {
+                "text": "Critical",
+                "value": "5"
+              },
+              {
+                "text": "Non-recoverable",
+                "value": "6"
+              }
+            ]
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Time",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "job",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "expr": "(0*serverServiceTag{location_server=~\"$location_server\"}+ on (instance) group_left(systemStatePowerUnitStatusCombined) (systemStatePowerUnitStatusCombined{location_server=~\"$location_server\"}))!=3",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "PowerSupplyUnit",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "content": "<a><img src=\"https://cdn0.iconfinder.com/data/icons/computer-and-hardware-free/32/Computer__Computer_Hardware_Plug_Electronic_Power_Cord-64.png\" width=auto height=\"110\" ></a> ",
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 0,
+          "y": 50
+        },
+        "id": 68,
+        "links": [],
+        "mode": "html",
+        "options": {},
+        "pluginVersion": "6.5.1",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "PowerSupply",
+        "transparent": true,
+        "type": "text"
+      },
+      {
+        "cacheTimeout": null,
+        "columns": [],
+        "datasource": null,
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 4,
+          "w": 22,
+          "x": 2,
+          "y": 50
+        },
+        "id": 66,
+        "links": [],
+        "options": {},
+        "pageSize": null,
+        "pluginVersion": "6.5.1",
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 1,
+          "desc": false
+        },
+        "styles": [
+          {
+            "alias": "Device health",
+            "colorMode": "cell",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "link": false,
+            "mappingType": 1,
+            "pattern": "Value",
+            "preserveFormat": false,
+            "sanitize": false,
+            "thresholds": [
+              "4",
+              "5"
+            ],
+            "type": "string",
+            "unit": "short",
+            "valueMaps": [
+              {
+                "text": "Other",
+                "value": "1"
+              },
+              {
+                "text": "Unknow",
+                "value": "2"
+              },
+              {
+                "text": "OK",
+                "value": "3"
+              },
+              {
+                "text": "Non-critical",
+                "value": "4"
+              },
+              {
+                "text": "Critical",
+                "value": "5"
+              },
+              {
+                "text": "Non-recoverable",
+                "value": "6"
+              }
+            ]
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Time",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "job",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "expr": "(0*serverServiceTag{location_server=~\"$location_server\"}+ on (instance) group_left(systemStatePowerSupplyStatusCombined) (systemStatePowerSupplyStatusCombined{location_server=~\"$location_server\"}))!=3",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "PowerSupply",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "content": "<a><img src=\"https://cdn3.iconfinder.com/data/icons/computer-hardware-598/66/45_network_port_ethernet_internet_socket_lan_lan_port_computer_port_computer_port_icon_internet_line_icon-64.png\" width=auto height=\"110\" ></a> ",
+        "datasource": null,
+        "gridPos": {
+          "h": 5,
+          "w": 2,
+          "x": 0,
+          "y": 54
+        },
+        "id": 77,
+        "links": [],
+        "mode": "html",
+        "options": {},
+        "pluginVersion": "6.5.1",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Network",
+        "transparent": true,
+        "type": "text"
+      },
+      {
+        "cacheTimeout": null,
+        "columns": [],
+        "datasource": null,
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 5,
+          "w": 22,
+          "x": 2,
+          "y": 54
+        },
+        "id": 78,
+        "links": [],
+        "options": {},
+        "pageSize": null,
+        "pluginVersion": "6.5.1",
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 1,
+          "desc": false
+        },
+        "styles": [
+          {
+            "alias": "Device health",
+            "colorMode": "cell",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "link": false,
+            "mappingType": 1,
+            "pattern": "Value",
+            "preserveFormat": false,
+            "sanitize": false,
+            "thresholds": [
+              "4",
+              "5"
+            ],
+            "type": "string",
+            "unit": "short",
+            "valueMaps": [
+              {
+                "text": "Other",
+                "value": "1"
+              },
+              {
+                "text": "Unknow",
+                "value": "2"
+              },
+              {
+                "text": "OK",
+                "value": "3"
+              },
+              {
+                "text": "Non-critical",
+                "value": "4"
+              },
+              {
+                "text": "Critical",
+                "value": "5"
+              },
+              {
+                "text": "Non-recoverable",
+                "value": "6"
+              }
+            ]
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Time",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "job",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "expr": " networkDeviceStatus{location_server=~\"$location_server\"}!=3",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Netw",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "content": "<a><img src=\"https://cdn0.iconfinder.com/data/icons/weather-888/32/weather_temperature_thermometer_cold_winter-256.png\" width=auto height=\"110\" ></a> ",
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 0,
+          "y": 59
+        },
+        "id": 81,
+        "links": [],
+        "mode": "html",
+        "options": {},
+        "pluginVersion": "6.5.1",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Network",
+        "transparent": true,
+        "type": "text"
+      },
+      {
+        "cacheTimeout": null,
+        "columns": [],
+        "datasource": null,
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 5,
+          "w": 22,
+          "x": 2,
+          "y": 59
+        },
+        "id": 82,
+        "links": [],
+        "options": {},
+        "pageSize": null,
+        "pluginVersion": "6.5.1",
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 1,
+          "desc": false
+        },
+        "styles": [
+          {
+            "alias": "Device health",
+            "colorMode": "cell",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "link": false,
+            "mappingType": 1,
+            "pattern": "Value",
+            "preserveFormat": false,
+            "sanitize": false,
+            "thresholds": [
+              "4",
+              "5"
+            ],
+            "type": "string",
+            "unit": "short",
+            "valueMaps": [
+              {
+                "text": "Other",
+                "value": "1"
+              },
+              {
+                "text": "Unknow",
+                "value": "2"
+              },
+              {
+                "text": "OK",
+                "value": "3"
+              },
+              {
+                "text": "Non-critical",
+                "value": "4"
+              },
+              {
+                "text": "Critical",
+                "value": "5"
+              },
+              {
+                "text": "Non-recoverable",
+                "value": "6"
+              }
+            ]
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Time",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "job",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "expr": " systemStateTemperatureStatusCombined{location_server=~\"$location_server\"}!=3",
+            "format": "table",
+            "hide": false,
+            "instant": true,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Netw",
+        "transform": "table",
+        "type": "table"
+      }
+    ],
+    "refresh": false,
+    "schemaVersion": 21,
+    "style": "dark",
+    "tags": [
+      "hardware",
+      "overview",
+      "hardware-overview"
+    ],
+    "templating": {
+      "list": [
+        {
+          "allValue": null,
+          "current": {
+            "text": "All",
+            "value": [
+              "$__all"
+            ]
+          },
+          "datasource": "Prometheus",
+          "definition": "label_values(      globalSystemStatus{ job=\"snmp-dell-hardware\" }  ,location_server) ",
+          "hide": 0,
+          "includeAll": true,
+          "label": "location_server",
+          "multi": true,
+          "name": "location_server",
+          "options": [],
+          "query": "label_values(      globalSystemStatus{ job=\"snmp-dell-hardware\" }  ,location_server) ",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "tagValuesQuery": "",
+          "tags": [],
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
+        }
+      ]
+    },
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "timepicker": {
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ]
+    },
+    "timezone": "",
+    "title": "Hardware - Overview",
+    "uid": "XBePDEmIz",
+    "version": 68
+  }
