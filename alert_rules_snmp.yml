@@ -1,0 +1,186 @@
+groups:
+- name: alert snmp dell hardware status
+  rules:
+
+# == [ System Health Section] ================================================================
+
+  - alert: System Health
+    expr: globalSystemStatus == 4
+    for: 5s
+    labels:
+      severity: WARNING
+    annotations:
+      description: "System Health is WARNING - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+
+  - alert: System Health
+    expr: globalSystemStatus == 5
+    for: 5s
+    labels:
+      severity: CRITICAL
+    annotations:
+      description: "System Health is CRITICAL - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+
+# == [ BIOS status Section] ================================================================
+
+  - alert: BIOS status
+    expr: systemBIOSStatus == 4
+    for: 5s
+    labels:
+      severity: WARNING
+    annotations:
+      description: "System BIOS is WARNING - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+
+  - alert: BIOS status
+    expr: systemBIOSStatus == 5
+    for: 5s
+    labels:
+      severity: CRITICAL
+    annotations:
+      description: "System BIOS is WARNING - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+
+# == [ Fan status Section] ================================================================
+
+  - alert: Fan status
+    expr: coolingDeviceStatus == 4
+    for: 5s
+    labels:
+      severity: WARNING
+    annotations:
+      description:  "{{$labels.coolingDeviceLocationName}} is WARNING - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+
+  - alert: Fan status
+    expr: coolingDeviceStatus == 5
+    for: 5s
+    labels:
+      severity: CRITICAL
+    annotations:
+      description: "{{$labels.coolingDeviceLocationName}} is WARNING - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+
+# == [ Memory status Section] ================================================================
+
+  - alert: RAM status
+    expr: systemStateMemoryDeviceStatusCombined == 5
+    for: 5s
+    labels:
+      severity: CRITICAL
+    annotations:
+      description: "RAM status is CRITICAL - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+
+# == [ Network status Section] ================================================================
+
+
+  - alert: Network adapter status
+    expr: networkDeviceStatus{networkDeviceProductName=~".*Intel.*Ethernet.*"} == 4
+    for: 5s
+    labels:
+      severity: WARNING
+    annotations:
+      description: "Network adapter (10Gb | {{$labels.networkDeviceProductName}}) health status is WARNING - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+
+  - alert: Network adapter status
+    expr: networkDeviceStatus{networkDeviceProductName=~".*Intel.*Ethernet.*"} == 5
+    for: 5s
+    labels:
+      severity: CRITICAL
+    annotations:
+      description: "Network adapter (10Gb | {{$labels.networkDeviceProductName}}) health status is CRITICAL - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+
+
+  - alert: Network adapter connection status
+    expr: networkDeviceConnectionStatus{networkDeviceProductName=~".*Intel.*Ethernet.*"} == 2
+    for: 5s
+    labels:
+      severity: WARNING
+    annotations:
+      description: "Network cable disconnected"
+  
+  - alert: Network adapter connection status
+    expr: networkDeviceConnectionStatus{networkDeviceProductName=~".*Intel.*Ethernet.*"} == 4
+    for: 5s
+    labels:
+      severity: CRITICAL
+    annotations:
+      description: "Network adapter driver bad"
+
+# == [ Power status Section] ================================================================
+
+  - alert: Power supply status
+    expr: powerSupplyStatus == 4 
+    for: 5s
+    labels:
+      severity: WARNING
+    annotations:
+      description: "Power supply unit {{$labels.ip_address}} (PSU{{$labels.powerSupplyIndex}}) is WARNING - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+
+  - alert: Power supply status
+    expr:  powerSupplyStatus == 5
+    for: 5s
+    labels:
+      severity: CRITICAL
+    annotations:
+      description: "Power supply unit {{$labels.ip_address}} (PSU{{$labels.powerSupplyIndex}}) is CRITICAL - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+
+# == [ RAID status Section] ================================================================
+
+  - alert: Array controller battery status
+    expr: systemStateBatteryStatusCombined == 4
+    for: 5s
+    labels:
+      severity: WARNING
+    annotations:
+      description: "RAID controller's battery status is WARNING - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+
+  - alert: Array controller battery status
+    expr: systemStateBatteryStatusCombined == 5
+    for: 5s
+    labels:
+      severity: CRITICAL
+    annotations:
+      description: "RAID controller's battery status is CRITICAL - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+
+  - alert: RAID controller status
+    expr: controllerRollUpStatus == 4
+    for: 5s
+    labels:
+      severity: WARNING
+    annotations:
+      description: "{{$labels.controllerDisplayName}}_{{$labels.controllerDescription}} status is WARNING - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+
+  - alert: RAID controller status
+    expr: controllerRollUpStatus == 5
+    for: 5s
+    labels:
+      severity: CRITICAL
+    annotations:
+      description: "{{$labels.controllerDisplayName}}_{{$labels.controllerDescription}} status is CRITICAL - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+
+
+
+# == [ Storage status Section] ================================================================
+
+  - alert: Storage component status
+    expr: physicalDiskComponentStatus == 4
+    for: 5s
+    labels:
+      severity: WARNING
+    annotations:
+      description: "Storage component (Physical {{$labels.physicalDiskDisplayName}}) is WARNING - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+
+  - alert: Storage component status
+    expr:  physicalDiskComponentStatus == 5
+    for: 5s
+    labels:
+      severity: CRITICAL
+    annotations:
+      description: "Storage component (Physical disk {{$labels.physicalDiskDisplayName}}) is CRITICAL - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+
+# == [ Power status Section] ================================================================
+
+  - alert: Server-Reboot
+    expr: systemPowerState{job="snmp-dell-hardware"} == 3
+    for: 5s
+    labels:
+      severity: CRITICAL
+    annotations:
+      description: >
+        Server was REBOOT at {{ with query "time()" }}{{ . | first | value | humanizeTimestamp }}{{ end }}

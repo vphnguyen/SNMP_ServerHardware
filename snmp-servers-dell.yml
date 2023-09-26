@@ -1,0 +1,9 @@
+
+- targets:
+  - 192.168.2.183 #server's idrac
+  labels:
+    func_server: 'func_or_domain'
+    location_server: 'Site-DCname'
+    ip_address: 'public_IP'
+    rack: 'rack_name'
+    unit: 'server_unit'

@@ -1,0 +1,16 @@
+[Unit]
+Description=SNMP Exporter
+After=network-online.target
+
+[Service]
+User=prometheus
+Group=prometheus
+Restart=on-failure
+ExecStart=/mnt/snmp_exporter/snmp_exporter --config.file=/mnt/snmp_exporter/snmp.yml 
+
+
+Restart=always
+LimitNOFILE=100000
+
+[Install]
+WantedBy=multi-user.target

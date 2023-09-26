@@ -1,0 +1,15 @@
+--- 
+- name: Change AgentCommunity Name to Fss
+  hosts: server_dell_list_ip_DCname
+  gather_facts: False
+  vars:
+    ansible_connection: ssh
+    ansible_user: username # Default idrac username
+    ansible_ssh_pass: password # Default idrac password
+
+  tasks:
+#====================================
+  - name: Create user
+    raw: set idRAC.SNMP.AgentCommunity Fss
+    register: rersultCreate
+    failed_when: "not 'Object value modified successfully' in rersultCreate.stdout " 
