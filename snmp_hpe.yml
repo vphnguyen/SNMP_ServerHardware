@@ -57,46 +57,274 @@ modules:
         2: poweredOff
         3: poweredOn
         4: insufficientPowerOrPowerOnDenied
-
-    # - name: controllerRollUpStatus
-    # - name: coolingDeviceStatus
-    # - name: coolingDeviceReading
-    # - name: serverServiceTag
-    # - name: networkDeviceStatus
-    # - name: networkDeviceConnectionStatus
-    # - name: systemBIOSStatus
     - name: sysUpTime
       oid: 1.3.6.1.2.1.1.3
       type: gauge
       help: The time (in hundredths of a second) since the network management portion
         of the system was last re-initialized. - 1.3.6.1.2.1.1.3
-    # - name: globalSystemStatus
-    # - name: systemLCDStatus
-    # - name: globalStorageStatus
-    # - name: systemPowerState
-    # - name: systemPowerUpTime
-    # - name: processorDevicechassisIndex
-    # - name: processorDeviceIndex
-    # - name: processorDeviceStateCapabilities
-    # - name: processorDeviceStateSettings
-    # - name: processorDeviceStatus
-    # - name: processorDeviceType
-    # - name: processorDeviceManufacturerName
-    # - name: processorDeviceStatusState
-    # - name: processorDeviceFamily
-    # - name: processorDeviceMaximumSpeed
-    # - name: processorDeviceCurrentSpeed
-    # - name: processorDeviceExternalClockSpeed
-    # - name: processorDeviceVoltage
-    # - name: processorDeviceVersionName
-    # - name: processorDeviceCoreCount
-    # - name: processorDeviceCoreEnabledCount
-    # - name: processorDeviceThreadCount
-    # - name: processorDeviceCharacteristics
-    # - name: processorDeviceExtendedCapabilities
-    # - name: processorDeviceExtendedSettings
-    # - name: processorDeviceBrandName
-    # - name: processorDeviceFQDD
+    - name: cpqSeCpuUnitIndex
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.1
+      type: gauge
+      help: This is a number that uniquely specifies a processor unit - 1.3.6.1.4.1.232.1.2.2.1.1.1
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCpuSlot
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.2
+      type: gauge
+      help: This value represents this processor`s slot - 1.3.6.1.4.1.232.1.2.2.1.1.2
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCpuName
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.3
+      type: DisplayString
+      help: The name of this processor - 1.3.6.1.4.1.232.1.2.2.1.1.3
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCpuSpeed
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.4
+      type: gauge
+      help: The current internal speed of this processor in megahertz - 1.3.6.1.4.1.232.1.2.2.1.1.4
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCpuStep
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.5
+      type: gauge
+      help: This step of the processor - 1.3.6.1.4.1.232.1.2.2.1.1.5
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCpuStatus
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.6
+      type: gauge
+      help: The status of the processor - 1.3.6.1.4.1.232.1.2.2.1.1.6
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+      enum_values:
+        1: unknown
+        2: ok
+        3: degraded
+        4: failed
+        5: disabled
+    - name: cpqSeCpuExtSpeed
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.7
+      type: gauge
+      help: This is the external frequency in megahertz of the processor bus - 1.3.6.1.4.1.232.1.2.2.1.1.7
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCpuDesigner
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.8
+      type: gauge
+      help: This attribute specifies the manufacturer which designs this CPU. - 1.3.6.1.4.1.232.1.2.2.1.1.8
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+      enum_values:
+        1: unknown
+        2: intel
+        3: amd
+        4: cyrix
+        5: ti
+        6: nexgen
+        7: compaq
+        8: samsung
+        9: mitsubishi
+        10: mips
+    - name: cpqSeCpuSocketNumber
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.9
+      type: gauge
+      help: The physical socket number of the CPU chip - 1.3.6.1.4.1.232.1.2.2.1.1.9
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCpuThreshPassed
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.10
+      type: gauge
+      help: CPU threshold passed (Exceeded) - 1.3.6.1.4.1.232.1.2.2.1.1.10
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+      enum_values:
+        1: unsupported
+        2: "false"
+        3: "true"
+    - name: cpqSeCpuHwLocation
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.11
+      type: DisplayString
+      help: A text description of the hardware location, on complex multi SBB hardware
+        only, for the CPU - 1.3.6.1.4.1.232.1.2.2.1.1.11
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCpuCellTablePtr
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.12
+      type: gauge
+      help: This is the index for the cell in cpqSeCellTable where this CPU is physically
+        located. - 1.3.6.1.4.1.232.1.2.2.1.1.12
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCpuPowerpodStatus
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.13
+      type: gauge
+      help: This is the status of CPU power pod - 1.3.6.1.4.1.232.1.2.2.1.1.13
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+      enum_values:
+        1: notfailed
+        2: failed
+    - name: cpqSeCpuArchitectureRevision
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.14
+      type: DisplayString
+      help: This is the CPU architecture revision. - 1.3.6.1.4.1.232.1.2.2.1.1.14
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCpuCore
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.15
+      type: gauge
+      help: The number of cores in this CPU module - 1.3.6.1.4.1.232.1.2.2.1.1.15
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCPUSerialNumber
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.16
+      type: DisplayString
+      help: The OEM serial number of the CPU. - 1.3.6.1.4.1.232.1.2.2.1.1.16
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCPUPartNumber
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.17
+      type: DisplayString
+      help: The OEM part number of the CPU. - 1.3.6.1.4.1.232.1.2.2.1.1.17
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCPUSerialNumberMfgr
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.18
+      type: DisplayString
+      help: The manufacturer serial number of the CPU. - 1.3.6.1.4.1.232.1.2.2.1.1.18
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCPUPartNumberMfgr
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.19
+      type: DisplayString
+      help: The manufacturer part number of the CPU. - 1.3.6.1.4.1.232.1.2.2.1.1.19
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCPUCoreIndex
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.20
+      type: gauge
+      help: This is a number that uniquely identifies a core in a CPU unit. - 1.3.6.1.4.1.232.1.2.2.1.1.20
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCPUMaxSpeed
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.21
+      type: gauge
+      help: This is the maximum internal speed in megahertz this processor can support
+        - 1.3.6.1.4.1.232.1.2.2.1.1.21
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCPUCoreThreadIndex
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.22
+      type: gauge
+      help: This is an unique number to identify the running threads in a CPU core.
+        - 1.3.6.1.4.1.232.1.2.2.1.1.22
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCPUChipGenerationName
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.23
+      type: DisplayString
+      help: CPU chip generation name e.g - 1.3.6.1.4.1.232.1.2.2.1.1.23
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCPUMultiThreadStatus
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.24
+      type: gauge
+      help: This OID identifies whether the CPU threading is enabled or not. - 1.3.6.1.4.1.232.1.2.2.1.1.24
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+      enum_values:
+        1: unknown
+        2: enabled
+        3: disabled
+    - name: cpqSeCPUCoreMaxThreads
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.25
+      type: gauge
+      help: This OID indicates the maximum number of threads that a cpu core is capable
+        of. - 1.3.6.1.4.1.232.1.2.2.1.1.25
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCpuLowPowerStatus
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.26
+      type: gauge
+      help: Servers like Itanium has capability to lower power supply to CPU if it is
+        idle for specified period of time - 1.3.6.1.4.1.232.1.2.2.1.1.26
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+      enum_values:
+        1: unknown
+        2: lowpowered
+        3: normalpowered
+        4: highpowered
+    - name: cpqSeCpuPrimary
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.27
+      type: gauge
+      help: On SMP systems one of the CPU is set to Primary and the other CPUs as secondary
+        - 1.3.6.1.4.1.232.1.2.2.1.1.27
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+      enum_values:
+        1: unknown
+        2: "false"
+        3: "true"
+    - name: cpqSeCpuCoreSteppingText
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.28
+      type: DisplayString
+      help: The processor stepping version string - 1.3.6.1.4.1.232.1.2.2.1.1.28
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCpuCurrentPerformanceState
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.29
+      type: gauge
+      help: This OID returns the current performance state of this processor - 1.3.6.1.4.1.232.1.2.2.1.1.29
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCpuMinPerformanceState
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.30
+      type: gauge
+      help: This OID returns the minimum performance state set for this processor -
+        1.3.6.1.4.1.232.1.2.2.1.1.30
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
+    - name: cpqSeCpuMaxPerformanceState
+      oid: 1.3.6.1.4.1.232.1.2.2.1.1.31
+      type: gauge
+      help: This OID returns the maximum performance state set for this processor -
+        1.3.6.1.4.1.232.1.2.2.1.1.31
+      indexes:
+      - labelname: cpqSeCpuUnitIndex
+        type: gauge
 
     # - name: memoryDeviceSize
     - name: memoryDeviceSize
