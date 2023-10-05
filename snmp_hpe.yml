@@ -34,14 +34,13 @@ modules:
     - 1.3.6.1.2.1.1.3.0
     metrics:
 # == [ServiceTag section] ===============================================
-# == 1.3.6.1.4.1.232.1 
-# == 1.3.6.1.4.1.232.2
-# == 1.3.6.1.4.1.232.3
-# == 1.3.6.1.4.1.232.6
-# == 1.3.6.1.4.1.232.9
-# == 1.3.6.1.4.1.232.10
-# == 1.3.6.1.4.1.232.11
-# == 1.3.6.1.4.1.232.18
+# == 1.3.6.1.4.1.232.1 CPU 
+# == 1.3.6.1.4.1.232.2 Serv Info
+# == 1.3.6.1.4.1.232.3 Minor
+# == 1.3.6.1.4.1.232.6 Health
+# == 1.3.6.1.4.1.232.9 change minor
+# == 1.3.6.1.4.1.232.11 OS
+# == 1.3.6.1.4.1.232.18 NIC
 
     - name: serverServiceTag
       oid: 1.3.6.1.4.1.232.2.2.2.1.0
@@ -592,6 +591,17 @@ modules:
       type: gauge
       help: This attribute defines the overall rollup status of all components in the
         system being monitored by the remote access card - 1.3.6.1.4.1.674.10892.5.2.1
+      lookups:
+      - labels:
+        - globalSystemStatus
+        labelname: serviceTag
+        oid: 1.3.6.1.4.1.674.10892.5.1.3.2.0
+        type: DisplayString
+      - labels:
+        - globalSystemStatus
+        labelname: serverModel
+        oid: 1.3.6.1.4.1.674.10892.5.1.3.12.0
+        type: DisplayString
       enum_values:
         1: other
         2: unknown
