@@ -594,11 +594,11 @@ modules:
       lookups:
       - labels:
         labelname: serviceTag
-        oid: 1.3.6.1.4.1.674.10892.5.1.3.2.0
+        oid: 1.3.6.1.4.1.674.10892.5.1.3.2
         type: DisplayString
       - labels:
         labelname: serverModel
-        oid: 1.3.6.1.4.1.674.10892.5.1.3.12.0
+        oid: 1.3.6.1.4.1.674.10892.5.1.3.12
         type: DisplayString
       enum_values:
         1: other
