@@ -153,14 +153,7 @@ modules:
         1: unsupported
         2: "false"
         3: "true"
-    - name: cpqSeCpuHwLocation
-      oid: 1.3.6.1.4.1.232.1.2.2.1.1.11
-      type: DisplayString
-      help: A text description of the hardware location, on complex multi SBB hardware
-        only, for the CPU - 1.3.6.1.4.1.232.1.2.2.1.1.11
-      indexes:
-      - labelname: cpqSeCpuUnitIndex
-        type: gauge
+        
     - name: cpqSeCpuCellTablePtr
       oid: 1.3.6.1.4.1.232.1.2.2.1.1.12
       type: gauge
@@ -179,13 +172,7 @@ modules:
       enum_values:
         1: notfailed
         2: failed
-    - name: cpqSeCpuArchitectureRevision
-      oid: 1.3.6.1.4.1.232.1.2.2.1.1.14
-      type: DisplayString
-      help: This is the CPU architecture revision. - 1.3.6.1.4.1.232.1.2.2.1.1.14
-      indexes:
-      - labelname: cpqSeCpuUnitIndex
-        type: gauge
+        
     - name: cpqSeCpuCore
       oid: 1.3.6.1.4.1.232.1.2.2.1.1.15
       type: gauge
@@ -200,13 +187,7 @@ modules:
       indexes:
       - labelname: cpqSeCpuUnitIndex
         type: gauge
-    - name: cpqSeCPUPartNumber
-      oid: 1.3.6.1.4.1.232.1.2.2.1.1.17
-      type: DisplayString
-      help: The OEM part number of the CPU. - 1.3.6.1.4.1.232.1.2.2.1.1.17
-      indexes:
-      - labelname: cpqSeCpuUnitIndex
-        type: gauge
+        
     - name: cpqSeCPUSerialNumberMfgr
       oid: 1.3.6.1.4.1.232.1.2.2.1.1.18
       type: DisplayString
@@ -214,13 +195,7 @@ modules:
       indexes:
       - labelname: cpqSeCpuUnitIndex
         type: gauge
-    - name: cpqSeCPUPartNumberMfgr
-      oid: 1.3.6.1.4.1.232.1.2.2.1.1.19
-      type: DisplayString
-      help: The manufacturer part number of the CPU. - 1.3.6.1.4.1.232.1.2.2.1.1.19
-      indexes:
-      - labelname: cpqSeCpuUnitIndex
-        type: gauge
+        
     - name: cpqSeCPUCoreIndex
       oid: 1.3.6.1.4.1.232.1.2.2.1.1.20
       type: gauge
