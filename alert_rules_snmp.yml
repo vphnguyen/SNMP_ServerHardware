@@ -10,7 +10,7 @@ groups:
     labels:
       severity: WARNING
     annotations:
-      description: "System Health is WARNING - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+      description: "SNMP - System Health is WARNING"
 
   - alert: System Health
     expr: globalSystemStatus == 5
@@ -18,7 +18,7 @@ groups:
     labels:
       severity: CRITICAL
     annotations:
-      description: "System Health is CRITICAL - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+      description: "SNMP - System Health is CRITICAL"
 
 # == [ BIOS status Section] ================================================================
 
@@ -28,7 +28,7 @@ groups:
     labels:
       severity: WARNING
     annotations:
-      description: "System BIOS is WARNING - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+      description: "SNMP - System BIOS is WARNING."
 
   - alert: BIOS status
     expr: systemBIOSStatus == 5
@@ -36,7 +36,7 @@ groups:
     labels:
       severity: CRITICAL
     annotations:
-      description: "System BIOS is WARNING - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+      description: "SNMP - System BIOS is CRITICAL."
 
 # == [ Fan status Section] ================================================================
 
@@ -46,7 +46,7 @@ groups:
     labels:
       severity: WARNING
     annotations:
-      description:  "{{$labels.coolingDeviceLocationName}} is WARNING - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+      description: "SNMP -{{$labels.coolingDeviceLocationName}} is WARNING."
 
   - alert: Fan status
     expr: coolingDeviceStatus == 5
@@ -54,7 +54,7 @@ groups:
     labels:
       severity: CRITICAL
     annotations:
-      description: "{{$labels.coolingDeviceLocationName}} is WARNING - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+      description: "SNMP - {{$labels.coolingDeviceLocationName}} is CRITICAL."
 
 # == [ Memory status Section] ================================================================
 
@@ -64,43 +64,42 @@ groups:
     labels:
       severity: CRITICAL
     annotations:
-      description: "RAM status is CRITICAL - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+      description: "SNMP - RAM status is CRITICAL."
 
 # == [ Network status Section] ================================================================
 
-
   - alert: Network adapter status
-    expr: networkDeviceStatus{networkDeviceProductName=~".*Intel.*Ethernet.*"} == 4
+    expr: networkDeviceStatus{networkDeviceProductName=~".*Intel.*Ethernet.*|.*10Gb.*"} == 4
     for: 5s
     labels:
       severity: WARNING
     annotations:
-      description: "Network adapter (10Gb | {{$labels.networkDeviceProductName}}) health status is WARNING - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+      description: "SNMP - Network adapter (10Gb | {{$labels.networkDeviceProductName}}) health status is WARNING."
 
   - alert: Network adapter status
-    expr: networkDeviceStatus{networkDeviceProductName=~".*Intel.*Ethernet.*"} == 5
+    expr: networkDeviceStatus{networkDeviceProductName=~".*Intel.*Ethernet.*|.*10Gb.*"} == 5
     for: 5s
     labels:
       severity: CRITICAL
     annotations:
-      description: "Network adapter (10Gb | {{$labels.networkDeviceProductName}}) health status is CRITICAL - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+      description: "SNMP - Network adapter (10Gb | {{$labels.networkDeviceProductName}}) health status is CRITICAL."
 
-
+  # == [ Cable] ====
   - alert: Network adapter connection status
-    expr: networkDeviceConnectionStatus{networkDeviceProductName=~".*Intel.*Ethernet.*"} == 2
+    expr: networkDeviceConnectionStatus{networkDeviceProductName=~".*Intel.*Ethernet.*|.*10Gb.*"} == 2
     for: 5s
     labels:
       severity: WARNING
     annotations:
-      description: "Network cable disconnected"
+      description: "SNMP - {{$labels.networkDeviceProductName}} cable disconnected"
   
   - alert: Network adapter connection status
-    expr: networkDeviceConnectionStatus{networkDeviceProductName=~".*Intel.*Ethernet.*"} == 4
+    expr: networkDeviceConnectionStatus{networkDeviceProductName=~".*Intel.*Ethernet.*|.*10Gb.*"} == 4
     for: 5s
     labels:
       severity: CRITICAL
     annotations:
-      description: "Network adapter driver bad"
+      description: "SNMP - {{$labels.networkDeviceProductName}} adapter driver bad"
 
 # == [ Power status Section] ================================================================
 
@@ -110,7 +109,7 @@ groups:
     labels:
       severity: WARNING
     annotations:
-      description: "Power supply unit {{$labels.ip_address}} (PSU{{$labels.powerSupplyIndex}}) is WARNING - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+      description: "SNMP - Power supply unit {{$labels.powerSupplyIndex}} is WARNING."
 
   - alert: Power supply status
     expr:  powerSupplyStatus == 5
@@ -118,7 +117,7 @@ groups:
     labels:
       severity: CRITICAL
     annotations:
-      description: "Power supply unit {{$labels.ip_address}} (PSU{{$labels.powerSupplyIndex}}) is CRITICAL - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+      description: "SNMP - Power supply unit {{$labels.powerSupplyIndex}} is CRITICAL."
 
 # == [ RAID status Section] ================================================================
 
@@ -128,7 +127,7 @@ groups:
     labels:
       severity: WARNING
     annotations:
-      description: "RAID controller's battery status is WARNING - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+      description: "SNMP - RAID controller's battery status is WARNING."
 
   - alert: Array controller battery status
     expr: systemStateBatteryStatusCombined == 5
@@ -136,7 +135,7 @@ groups:
     labels:
       severity: CRITICAL
     annotations:
-      description: "RAID controller's battery status is CRITICAL - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+      description: "SNMP - RAID controller's battery status is CRITICAL."
 
   - alert: RAID controller status
     expr: controllerRollUpStatus == 4
@@ -144,7 +143,7 @@ groups:
     labels:
       severity: WARNING
     annotations:
-      description: "{{$labels.controllerDisplayName}}_{{$labels.controllerDescription}} status is WARNING - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+      description: "SNMP - {{$labels.controllerDisplayName}}_{{$labels.controllerDescription}} status is WARNING."
 
   - alert: RAID controller status
     expr: controllerRollUpStatus == 5
@@ -152,7 +151,7 @@ groups:
     labels:
       severity: CRITICAL
     annotations:
-      description: "{{$labels.controllerDisplayName}}_{{$labels.controllerDescription}} status is CRITICAL - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+      description: "SNMP - {{$labels.controllerDisplayName}}_{{$labels.controllerDescription}} status is CRITICAL."
 
 
 
@@ -164,7 +163,7 @@ groups:
     labels:
       severity: WARNING
     annotations:
-      description: "Storage component (Physical {{$labels.physicalDiskDisplayName}}) is WARNING - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+      description: "SNMP - Storage component {{$labels.physicalDiskDisplayName}}) is WARNING."
 
   - alert: Storage component status
     expr:  physicalDiskComponentStatus == 5
@@ -172,11 +171,11 @@ groups:
     labels:
       severity: CRITICAL
     annotations:
-      description: "Storage component (Physical disk {{$labels.physicalDiskDisplayName}}) is CRITICAL - Server {{$labels.func_server}}:{{$labels.ip_address}} in {{$labels.location_server}}.{{$labels.rack}}.U{{$labels.unit}} with iDRAC: {{$labels.instance}}"
+      description: "SNMP - Storage component {{$labels.physicalDiskDisplayName}} is CRITICAL."
 
-# == [ Power status Section] ================================================================
+# == [ ServerPower down status Section] ================================================================
 
-  - alert: Server-Reboot
+  - alert: Server-Shutdown
     expr: systemPowerState{job="snmp-dell-hardware"} == 3
     for: 5s
     labels:
@@ -184,3 +183,14 @@ groups:
     annotations:
       description: >
         Server was REBOOT at {{ with query "time()" }}{{ . | first | value | humanizeTimestamp }}{{ end }}
+
+# == [ Server Stucked in BIOS] ================================================================
+
+  - alert: Server-Stucked-In-BIOS
+    expr: max_over_time(systemPowerUpTime{job="snmp-dell-hardware"}[10m] )== 0
+    for: 5s
+    labels:
+      severity: CRITICAL
+    annotations:
+      description: >
+        Server stucked in BIOS (>10m). 

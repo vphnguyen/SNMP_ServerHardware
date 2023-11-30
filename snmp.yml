@@ -39,12 +39,15 @@ modules:
     - 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.55
     - 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.6
     - 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.7
+    - 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.2
+    - 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.3
+    - 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.49
     get:
     - 1.3.6.1.2.1.1.3.0
     - 1.3.6.1.4.1.674.10892.5.4.300.50.1.5.1.1
     metrics:
 
-# == [Controller section] ==================================================
+  # == [Controller section] ==================================================
 
     - name: controllerRollUpStatus
       oid: 1.3.6.1.4.1.674.10892.5.5.1.20.130.1.1.37
@@ -73,6 +76,31 @@ modules:
         4: nonCritical
         5: critical
         6: nonRecoverable
+  # == [Endurance section] ==================================================
+
+    - name: remainingRatedWriteEndurance
+      oid: 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.49
+      type: gauge
+      help: SSD Remaining Rated Write Endurance - 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.49
+      indexes:
+      - labelname: physicalDiskNumber
+        type: gauge
+      lookups:
+      - labels:
+        - physicalDiskNumber
+        labelname: physicalDiskDisplayName
+        oid: 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.55
+        type: DisplayString
+      - labels:
+        - physicalDiskNumber
+        labelname: physicalDiskType
+        oid: 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.2
+        type: DisplayString
+      - labels:
+        - physicalDiskNumber
+        labelname: physicalDiskVendor
+        oid: 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.3
+        type: DisplayString
 
   # == [Coolling Device section] ==================================================
 
